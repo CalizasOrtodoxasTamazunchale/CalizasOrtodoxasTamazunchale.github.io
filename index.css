@@ -1,0 +1,226 @@
+/* Estilos globales */
+body, html {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+/* Estilo para el contenedor principal en mtto.html */
+#contenidoPrincipal {
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* Cambia el color de fondo según tus preferencias */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333; /* Cambia el color de texto según tus preferencias */
+}
+
+/* Estilo para el título "MAQUINARIA" */
+#contenidoPrincipal h1 {
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+
+/* Estilo para el contenedor del video */
+#videoContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilo para el video de fondo */
+#videoFondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* Estilo para el contenedor principal */
+#contenidoCentrado {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para el formulario de acceso */
+#formularioAcceso {
+    background-color: rgba(0, 0, 20%, 0.6); /* Cambia el valor de la transparencia aquí */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para los campos de usuario y contraseña */
+label {
+    color: white;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2); /* Cambia el valor de la transparencia aquí */
+}
+
+/* Estilo para el botón */
+button {
+    padding: 10px 20px;
+    background-color: hsl(0, 0%, 10%, 0.9);
+    color: #747474;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Estilo para el botón hover */
+button:hover {
+    background-color: white;
+}
+
+/* Estilo para la sección protegida */
+#seccionProtegida {
+    display: none; /* Oculta la sección por defecto */
+    text-align: center; /* Alinea el contenido al centro */
+    position: absolute;
+    top: 50%; /* Mueve la sección al centro vertical */
+    left: 50%; /* Centra la sección horizontalmente */
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Asegura que el contenido esté encima del video de fondo */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo para el header dentro de la sección protegida */
+#header {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el texto centrado en la parte superior */
+#textoSuperior {
+    position: absolute;
+    top: 20px; /* Ajusta la distancia desde la parte superior */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Centra horizontalmente */
+    height: auto;
+    width: auto;
+    text-align: center;
+    color: white;
+    font-size: 32px; /* Aumenta el tamaño de la letra del texto */
+    z-index: 2; /* Asegura que el texto esté encima del video de fondo */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 30px; /* Aumenta el espacio interior del texto */
+    border-radius: 10px;
+}
+
+/* Estilo para el contenedor principal */
+#contenidoCentrado {
+    position: absolute;
+    top: 50%; /* Centra el contenido verticalmente */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para el contenedor de imágenes */
+.imagenes-container {
+    display: flex;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    align-items: center;
+    margin-top: 30px;
+    width: 90%; /* Aumenta el tamaño del contenedor */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para las imágenes en la sección protegida */
+.imagenes-container img {
+    width: 250px; /* Aumenta el tamaño de las imágenes */
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Agrega transición de filtro */
+    margin-right: 20px; /* Espacio entre imágenes */
+}
+
+/* Estilo de cambio de imagen al pasar el mouse */
+.imagenes-container img:hover {
+    transform: scale(1.1); /* Hace la imagen un poco más grande al hacer hover */
+    filter: brightness(1.2); /* Cambia el tono de la imagen al hacer hover */
+}
+
+/* Estilo para subrayar la frase */
+#fraseSubrayada {
+    text-decoration: underline;
+}
+
+/* Estilo para el contenedor de mtto.html */
+#mtto-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo semitransparente para superponer */
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* Permite desplazarse si el contenido es más grande */
+}
+
+/* Estilo para el contenido de mtto.html */
+#mtto-content {
+    background-color: #fff; /* Cambia el color de fondo según tus preferencias */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%; /* Ajusta el ancho según tus necesidades */
+    max-height: 90vh; /* Limita la altura a la altura de la ventana */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si es necesario */
+}
+
+/* Estilo para el contenido de mtto.html */
+#mtto-content iframe {
+    width: 100%; /* Ajusta el ancho del iframe */
+    height: 100%; /* Ajusta la altura del iframe */
+    border: none;
+}

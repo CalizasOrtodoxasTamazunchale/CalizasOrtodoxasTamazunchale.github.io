@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Socios</title>
+    <link rel="stylesheet" href="index.css"> <!-- Utiliza el archivo de estilos socios.css -->
+</head>
+<body>
+    <div id="videoContainer">
+        <video autoplay loop muted id="videoFondo" poster="FONDO.gif">
+            <source src="FONDO.gif" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+        <main id="contenidoCentrado">
+            <div id="formularioAcceso">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario">
+                <label for="contrasenaInput">Contraseña:</label>
+                <input type="password" id="contrasenaInput">
+                <button onclick="verificarContrasena()">Ingresar</button>
+            </div>
+            <!-- Agrega esta sección dentro del <main> existente en tu archivo HTML -->
+            <!-- Mantén esta estructura dentro del <main> -->
+            <div id="seccionProtegida" style="display: none;">
+                <h2>¡Contenido para socios!</h2>
+                <p><span id="fraseSubrayada"> Bienvenido a tu apartado con contenido exclusivo</span></p>
+                <div class="imagenes-container">
+                    <a href="PAF1.gif" onclick="mostrarContenido('PAF1.gif'); return false;">
+                        <img src="PRODUCCION AGOSTO.png" alt="MES ANTERIOR">
+                    </a>
+
+                    <a href="PSF.gif" onclick="mostrarContenido('PSF.gif'); return false;">
+                        <img src="PRODUCCION SEP.png" alt="MES ACTUAL">
+                    </a>
+
+                    <a href="mtto.html" target="_blank" rel="noopener noreferrer">
+                        <img src="MTTO WEB.png" alt="MANTENIMIENTO">
+                    </a>
+
+
+                    <a href="WIP.gif" onclick="mostrarContenido('WIP.gif'); return false;">
+                        <img src="ALM WEB.png" alt="ALMACÉN">
+                    </a>
+
+                </div>
+            </div>
+            <div id="contenidoDinamico" style="display: none;">
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const usuarios = {
+            MARTINEZ1: 'contraseña1',
+            MARTINEZ2: 'contraseña2',
+            SCORTES: 'contraseña3',
+            // Agrega más usuarios según sea necesario
+        };
+
+        let usuarioAutenticado = false; // Variable para verificar la autenticación
+
+        function verificarContrasena() {
+            const usuarioIngresado = document.getElementById('usuario').value;
+            const contrasenaIngresada = document.getElementById('contrasenaInput').value;
+
+            if (usuarios.hasOwnProperty(usuarioIngresado) && usuarios[usuarioIngresado] === contrasenaIngresada) {
+                // Autenticación exitosa
+                usuarioAutenticado = true;
+                document.getElementById('formularioAcceso').style.display = 'none';
+                document.getElementById('seccionProtegida').style.display = 'block';
+            } else {
+                alert('Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.');
+            }
+        }
+
+        function mostrarContenido(contenidoURL) {
+            // Verificar si el usuario está autenticado antes de mostrar el contenido
+            if (usuarioAutenticado) {
+                const contenidoDinamico = document.getElementById('contenidoDinamico');
+                contenidoDinamico.innerHTML = ''; // Limpia el contenido anterior
+
+                if (contenidoURL.endsWith('.gif')) {
+                    const gifElement = document.createElement('img');
+                    gifElement.src = contenidoURL;
+                    contenidoDinamico.appendChild(gifElement);
+                } else if (contenidoURL.endsWith('.mp4')) {
+                    const videoElement = document.createElement('video');
+                    videoElement.controls = true;
+                    const sourceElement = document.createElement('source');
+                    sourceElement.src = contenidoURL;
+                    sourceElement.type = 'video/mp4';
+                    videoElement.appendChild(sourceElement);
+                    contenidoDinamico.appendChild(videoElement);
+                } else {
+                    // Si la URL no es un archivo de video o GIF, cargarla como una página web
+                    const iframeElement = document.createElement('iframe');
+                    iframeElement.src = contenidoURL;
+                    iframeElement.style.width = '100%';
+                    iframeElement.style.height = '100vh';
+                    iframeElement.style.border = 'none';
+                    contenidoDinamico.appendChild(iframeElement);
+                }
+
+                // Ocultar el menú principal y mostrar el contenido dinámico
+                document.getElementById('seccionProtegida').style.display = 'none';
+                contenidoDinamico.style.display = 'block';
+            } else {
+                alert('Debes iniciar sesión para acceder al contenido.');
+            }
+        }
+
+        // Función para verificar y manejar la tecla "ESC" presionada
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                // Mostrar el menú principal y ocultar el contenido dinámico
+                document.getElementById('seccionProtegida').style.display = 'block';
+                document.getElementById('contenidoDinamico').style.display = 'none';
+            }
+        });
+
+    </script>
+</body>
+</html>
